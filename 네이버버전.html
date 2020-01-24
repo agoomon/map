@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+
+
+포인셋티어 5개.xlsx 업로드 성공 
+
+
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>간단한 지도 표시하기</title>
+	
+	<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+	
+	
+	<input type="checkbox" id="chkUseDistrict" onclick="setOverlayMapTypeId()" /> 지적편집도 정보 보기
+	
+	
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=dtv2hk8agm"></script>
+	
+	
+	
+	<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=dtv2hk8agm&submodules=geocoder"></script>
+
+
+	
+	
+</head>
+<body>
+<div id="map" style="width:100%;height:1000px;"></div>
+
+<script>
+var map = new naver.maps.Map('map', {
+    center: new naver.maps.LatLng(37.604930, 127.020825)
+    
+    }
+);
+
+
+
+// 지적편집도 관련
+
+var cadastralLayer = new naver.maps.CadastralLayer();
+
+function setOverlayMapTypeId(maptype) {
+    
+	var chkUseDistrict1 = document.getElementById('chkUseDistrict');
+	
+	var changeMaptype;
+    
+    if (chkUseDistrict1.checked) {
+        		
+		cadastralLayer.setMap(map);
+	        
+    }
+	
+	else   {
+//alert ("1");
+
+	cadastralLayer.setMap(null);
+	
+	};
+
+}
+	
+var address = ["길음동525-90", "쌍문동88-4"];    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//alert (address[i]);
+
+
+//주소 좌표 변환
+
+
+
+naver.maps.Service.geocode({ query: '성환읍 수향리 20-89' }, function(status, response) {
+    if (status === naver.maps.Service.Status.ERROR) {
+        return alert('Something wrong!');
+    }
+
+
+ if (response.v2.meta.totalCount === 0) {
+            alert('주소검색 안됨 : (' + '1' +') ' + '성환읍 수향리 20-89' );
+        }
+
+ if (response.v2.meta.totalCount > 1) {
+            alert('2개 이상의 동일주소 검색됨 : (' + '1' +') ' + '성환읍 수향리 20-89' );
+        }
+
+
+
+
+//alert (JSON.stringify(response));
+
+    // 성공 시의 response 처리
+//	alert (0);
+	
+	
+var item = response.v2.addresses[0];
+var point = new naver.maps.Point(item.x, item.y);	
+
+
+
+
+
+
+
+
+
+
+// 원그리기 
+
+
+var circle = {
+    position: point,
+    map: map,
+    icon: {
+        url: 'http://poinsettia85.ivyro.net/원.png',
+        size: new naver.maps.Size(50, 50),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(25, 25)
+    }
+};
+
+var marker = new naver.maps.Marker(circle);
+
+
+
+
+
+
+
+
+
+/*
+var circle = new naver.maps.Circle({
+    map: map,
+    center: point,
+    radius: 20,
+    strokeColor: 'blue',
+    strokeOpacity: 1,
+    strokeWeight: 3
+});
+*/
+
+
+//'+'0'+'
+
+// 텍스트 삽입
+
+var content = '<span class="left"></span><span class="center"><b><font color="#ff0000">'+'수향리 20-89'+""+''+'</font></b></span><span class="right"></span>';
+
+var text = new naver.maps.Marker({
+    position: point,
+    map: map,
+    icon: {
+        content: content,
+        anchor: new naver.maps.Point(25, 45),
+    },
+    draggable: false
+});
+
+
+/*
+var text = new naver.maps.InfoWindow({
+	position: point,
+	content: content,
+	disableAnchor: 'false',
+	backgroundColor: '#00ff0000',
+	borderColor: '#00ff0000'
+	
+	
+});
+
+text.open(map);
+*/
+
+
+
+
+//alert (content);
+
+
+/*
+var dokdo = new naver.maps.LatLngBounds(
+                        new naver.maps.LatLng(37.2380651, 131.8562652),
+                        new naver.maps.LatLng(37.2444436, 131.8786475));
+
+
+    map.fitBounds(dokdo);
+*/
+	
+	
+	
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+//alert (address[i]);
+
+
+//주소 좌표 변환
+
+
+
+naver.maps.Service.geocode({ query: '아산시 용화동 50' }, function(status, response) {
+    if (status === naver.maps.Service.Status.ERROR) {
+        return alert('Something wrong!');
+    }
+
+
+ if (response.v2.meta.totalCount === 0) {
+            alert('주소검색 안됨 : (' + '2' +') ' + '아산시 용화동 50' );
+        }
+
+ if (response.v2.meta.totalCount > 1) {
+            alert('2개 이상의 동일주소 검색됨 : (' + '2' +') ' + '아산시 용화동 50' );
+        }
+
+
+
+
+//alert (JSON.stringify(response));
+
+    // 성공 시의 response 처리
+//	alert (1);
+	
+	
+var item = response.v2.addresses[0];
+var point = new naver.maps.Point(item.x, item.y);	
+
+
+
+
+
+
+
+
+
+
+// 원그리기 
+
+
+var circle = {
+    position: point,
+    map: map,
+    icon: {
+        url: 'http://poinsettia85.ivyro.net/원.png',
+        size: new naver.maps.Size(50, 50),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(25, 25)
+    }
+};
+
+var marker = new naver.maps.Marker(circle);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+var circle = new naver.maps.Circle({
+    map: map,
+    center: point,
+    radius: 20,
+    strokeColor: 'blue',
+    strokeOpacity: 1,
+    strokeWeight: 3
+});
+*/
+
+
+//'+'1'+'
+
+// 텍스트 삽입
+
+var content = '<span class="left"></span><span class="center"><b><font color="#ff0000">'+'용화동 50'+""+''+'</font></b></span><span class="right"></span>';
+
+var text = new naver.maps.Marker({
+    position: point,
+    map: map,
+    icon: {
+        content: content,
+        anchor: new naver.maps.Point(25, 45),
+    },
+    draggable: false
+});
+
+
+/*
+var text = new naver.maps.InfoWindow({
+	position: point,
+	content: content,
+	disableAnchor: 'false',
+	backgroundColor: '#00ff0000',
+	borderColor: '#00ff0000'
+	
+	
+});
+
+text.open(map);
+*/
+
+
+
+
+//alert (content);
+
+
+/*
+var dokdo = new naver.maps.LatLngBounds(
+                        new naver.maps.LatLng(37.2380651, 131.8562652),
+                        new naver.maps.LatLng(37.2444436, 131.8786475));
+
+
+    map.fitBounds(dokdo);
+*/
+	
+	
+	
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+//alert (address[i]);
+
+
+//주소 좌표 변환
+
+
+
+naver.maps.Service.geocode({ query: '성환읍 수향리 55-28' }, function(status, response) {
+    if (status === naver.maps.Service.Status.ERROR) {
+        return alert('Something wrong!');
+    }
+
+
+ if (response.v2.meta.totalCount === 0) {
+            alert('주소검색 안됨 : (' + '3' +') ' + '성환읍 수향리 55-28' );
+        }
+
+ if (response.v2.meta.totalCount > 1) {
+            alert('2개 이상의 동일주소 검색됨 : (' + '3' +') ' + '성환읍 수향리 55-28' );
+        }
+
+
+
+
+//alert (JSON.stringify(response));
+
+    // 성공 시의 response 처리
+//	alert (2);
+	
+	
+var item = response.v2.addresses[0];
+var point = new naver.maps.Point(item.x, item.y);	
+
+
+
+
+
+
+
+
+
+
+// 원그리기 
+
+
+var circle = {
+    position: point,
+    map: map,
+    icon: {
+        url: 'http://poinsettia85.ivyro.net/원.png',
+        size: new naver.maps.Size(50, 50),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(25, 25)
+    }
+};
+
+var marker = new naver.maps.Marker(circle);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+var circle = new naver.maps.Circle({
+    map: map,
+    center: point,
+    radius: 20,
+    strokeColor: 'blue',
+    strokeOpacity: 1,
+    strokeWeight: 3
+});
+*/
+
+
+//'+'2'+'
+
+// 텍스트 삽입
+
+var content = '<span class="left"></span><span class="center"><b><font color="#ff0000">'+'수향리 55-28'+""+''+'</font></b></span><span class="right"></span>';
+
+var text = new naver.maps.Marker({
+    position: point,
+    map: map,
+    icon: {
+        content: content,
+        anchor: new naver.maps.Point(25, 45),
+    },
+    draggable: false
+});
+
+
+/*
+var text = new naver.maps.InfoWindow({
+	position: point,
+	content: content,
+	disableAnchor: 'false',
+	backgroundColor: '#00ff0000',
+	borderColor: '#00ff0000'
+	
+	
+});
+
+text.open(map);
+*/
+
+
+
+
+//alert (content);
+
+
+/*
+var dokdo = new naver.maps.LatLngBounds(
+                        new naver.maps.LatLng(37.2380651, 131.8562652),
+                        new naver.maps.LatLng(37.2444436, 131.8786475));
+
+
+    map.fitBounds(dokdo);
+*/
+	
+	
+	
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+//alert (address[i]);
+
+
+//주소 좌표 변환
+
+
+
+naver.maps.Service.geocode({ query: '성환읍 양령리 343-2' }, function(status, response) {
+    if (status === naver.maps.Service.Status.ERROR) {
+        return alert('Something wrong!');
+    }
+
+
+ if (response.v2.meta.totalCount === 0) {
+            alert('주소검색 안됨 : (' + '4' +') ' + '성환읍 양령리 343-2' );
+        }
+
+ if (response.v2.meta.totalCount > 1) {
+            alert('2개 이상의 동일주소 검색됨 : (' + '4' +') ' + '성환읍 양령리 343-2' );
+        }
+
+
+
+
+//alert (JSON.stringify(response));
+
+    // 성공 시의 response 처리
+//	alert (3);
+	
+	
+var item = response.v2.addresses[0];
+var point = new naver.maps.Point(item.x, item.y);	
+
+
+
+
+
+
+
+
+
+
+// 원그리기 
+
+
+var circle = {
+    position: point,
+    map: map,
+    icon: {
+        url: 'http://poinsettia85.ivyro.net/원.png',
+        size: new naver.maps.Size(50, 50),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(25, 25)
+    }
+};
+
+var marker = new naver.maps.Marker(circle);
+
+
+
+
+
+
+
+
+
+/*
+var circle = new naver.maps.Circle({
+    map: map,
+    center: point,
+    radius: 20,
+    strokeColor: 'blue',
+    strokeOpacity: 1,
+    strokeWeight: 3
+});
+*/
+
+
+//'+'3'+'
+
+// 텍스트 삽입
+
+var content = '<span class="left"></span><span class="center"><b><font color="#ff0000">'+'양령리 343-2'+""+''+'</font></b></span><span class="right"></span>';
+
+var text = new naver.maps.Marker({
+    position: point,
+    map: map,
+    icon: {
+        content: content,
+        anchor: new naver.maps.Point(25, 45),
+    },
+    draggable: false
+});
+
+
+/*
+var text = new naver.maps.InfoWindow({
+	position: point,
+	content: content,
+	disableAnchor: 'false',
+	backgroundColor: '#00ff0000',
+	borderColor: '#00ff0000'
+	
+	
+});
+
+text.open(map);
+*/
+
+
+
+
+//alert (content);
+
+
+/*
+var dokdo = new naver.maps.LatLngBounds(
+                        new naver.maps.LatLng(37.2380651, 131.8562652),
+                        new naver.maps.LatLng(37.2444436, 131.8786475));
+
+
+    map.fitBounds(dokdo);
+*/
+	
+	
+	
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+//alert (address[i]);
+
+
+//주소 좌표 변환
+
+
+
+naver.maps.Service.geocode({ query: '성환읍 양령리 390' }, function(status, response) {
+    if (status === naver.maps.Service.Status.ERROR) {
+        return alert('Something wrong!');
+    }
+
+
+ if (response.v2.meta.totalCount === 0) {
+            alert('주소검색 안됨 : (' + '5' +') ' + '성환읍 양령리 390' );
+        }
+
+ if (response.v2.meta.totalCount > 1) {
+            alert('2개 이상의 동일주소 검색됨 : (' + '5' +') ' + '성환읍 양령리 390' );
+        }
+
+
+
+
+//alert (JSON.stringify(response));
+
+    // 성공 시의 response 처리
+//	alert (4);
+	
+	
+var item = response.v2.addresses[0];
+var point = new naver.maps.Point(item.x, item.y);	
+
+
+
+
+
+
+
+
+
+
+// 원그리기 
+
+
+var circle = {
+    position: point,
+    map: map,
+    icon: {
+        url: 'http://poinsettia85.ivyro.net/원.png',
+        size: new naver.maps.Size(50, 50),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(25, 25)
+    }
+};
+
+var marker = new naver.maps.Marker(circle);
+
+
+
+
+
+
+
+
+
+/*
+var circle = new naver.maps.Circle({
+    map: map,
+    center: point,
+    radius: 20,
+    strokeColor: 'blue',
+    strokeOpacity: 1,
+    strokeWeight: 3
+});
+*/
+
+
+//'+'4'+'
+
+// 텍스트 삽입
+
+var content = '<span class="left"></span><span class="center"><b><font color="#ff0000">'+'양령리 390'+""+''+'</font></b></span><span class="right"></span>';
+
+var text = new naver.maps.Marker({
+    position: point,
+    map: map,
+    icon: {
+        content: content,
+        anchor: new naver.maps.Point(25, 45),
+    },
+    draggable: false
+});
+
+
+/*
+var text = new naver.maps.InfoWindow({
+	position: point,
+	content: content,
+	disableAnchor: 'false',
+	backgroundColor: '#00ff0000',
+	borderColor: '#00ff0000'
+	
+	
+});
+
+text.open(map);
+*/
+
+
+
+
+//alert (content);
+
+
+/*
+var dokdo = new naver.maps.LatLngBounds(
+                        new naver.maps.LatLng(37.2380651, 131.8562652),
+                        new naver.maps.LatLng(37.2444436, 131.8786475));
+
+
+    map.fitBounds(dokdo);
+*/
+	
+	
+	
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+//alert (address[i]);
+
+
+//주소 좌표 변환
+
+
+
+naver.maps.Service.geocode({ query: '성환읍 수향리 20-153' }, function(status, response) {
+    if (status === naver.maps.Service.Status.ERROR) {
+        return alert('Something wrong!');
+    }
+
+
+ if (response.v2.meta.totalCount === 0) {
+            alert('주소검색 안됨 : (' + '6' +') ' + '성환읍 수향리 20-153' );
+        }
+
+ if (response.v2.meta.totalCount > 1) {
+            alert('2개 이상의 동일주소 검색됨 : (' + '6' +') ' + '성환읍 수향리 20-153' );
+        }
+
+
+
+
+//alert (JSON.stringify(response));
+
+    // 성공 시의 response 처리
+//	alert (5);
+	
+	
+var item = response.v2.addresses[0];
+var point = new naver.maps.Point(item.x, item.y);	
+
+
+
+
+
+
+
+
+
+
+// 원그리기 
+
+
+var circle = {
+    position: point,
+    map: map,
+    icon: {
+        url: 'http://poinsettia85.ivyro.net/원.png',
+        size: new naver.maps.Size(50, 50),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(25, 25)
+    }
+};
+
+var marker = new naver.maps.Marker(circle);
+
+
+
+
+
+
+
+
+
+/*
+var circle = new naver.maps.Circle({
+    map: map,
+    center: point,
+    radius: 20,
+    strokeColor: 'blue',
+    strokeOpacity: 1,
+    strokeWeight: 3
+});
+*/
+
+
+//'+'5'+'
+
+// 텍스트 삽입
+
+var content = '<span class="left"></span><span class="center"><b><font color="#ff0000">'+'수향리 20-153'+""+''+'</font></b></span><span class="right"></span>';
+
+var text = new naver.maps.Marker({
+    position: point,
+    map: map,
+    icon: {
+        content: content,
+        anchor: new naver.maps.Point(25, 45),
+    },
+    draggable: false
+});
+
+
+/*
+var text = new naver.maps.InfoWindow({
+	position: point,
+	content: content,
+	disableAnchor: 'false',
+	backgroundColor: '#00ff0000',
+	borderColor: '#00ff0000'
+	
+	
+});
+
+text.open(map);
+*/
+
+
+
+
+//alert (content);
+
+
+/*
+var dokdo = new naver.maps.LatLngBounds(
+                        new naver.maps.LatLng(37.2380651, 131.8562652),
+                        new naver.maps.LatLng(37.2444436, 131.8786475));
+
+
+    map.fitBounds(dokdo);
+*/
+	
+	
+	
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+//alert (address[i]);
+
+
+//주소 좌표 변환
+
+
+
+naver.maps.Service.geocode({ query: '성환읍 양령리 609-1' }, function(status, response) {
+    if (status === naver.maps.Service.Status.ERROR) {
+        return alert('Something wrong!');
+    }
+
+
+ if (response.v2.meta.totalCount === 0) {
+            alert('주소검색 안됨 : (' + '7' +') ' + '성환읍 양령리 609-1' );
+        }
+
+ if (response.v2.meta.totalCount > 1) {
+            alert('2개 이상의 동일주소 검색됨 : (' + '7' +') ' + '성환읍 양령리 609-1' );
+        }
+
+
+
+
+//alert (JSON.stringify(response));
+
+    // 성공 시의 response 처리
+//	alert (6);
+	
+	
+var item = response.v2.addresses[0];
+var point = new naver.maps.Point(item.x, item.y);	
+
+
+
+
+
+
+
+
+
+
+// 원그리기 
+
+
+var circle = {
+    position: point,
+    map: map,
+    icon: {
+        url: 'http://poinsettia85.ivyro.net/원.png',
+        size: new naver.maps.Size(50, 50),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(25, 25)
+    }
+};
+
+var marker = new naver.maps.Marker(circle);
+
+
+
+
+
+
+
+
+
+/*
+var circle = new naver.maps.Circle({
+    map: map,
+    center: point,
+    radius: 20,
+    strokeColor: 'blue',
+    strokeOpacity: 1,
+    strokeWeight: 3
+});
+*/
+
+
+//'+'6'+'
+
+// 텍스트 삽입
+
+var content = '<span class="left"></span><span class="center"><b><font color="#ff0000">'+'양령리 609-1'+""+''+'</font></b></span><span class="right"></span>';
+
+var text = new naver.maps.Marker({
+    position: point,
+    map: map,
+    icon: {
+        content: content,
+        anchor: new naver.maps.Point(25, 45),
+    },
+    draggable: false
+});
+
+
+/*
+var text = new naver.maps.InfoWindow({
+	position: point,
+	content: content,
+	disableAnchor: 'false',
+	backgroundColor: '#00ff0000',
+	borderColor: '#00ff0000'
+	
+	
+});
+
+text.open(map);
+*/
+
+
+
+
+//alert (content);
+
+
+/*
+var dokdo = new naver.maps.LatLngBounds(
+                        new naver.maps.LatLng(37.2380651, 131.8562652),
+                        new naver.maps.LatLng(37.2444436, 131.8786475));
+
+
+    map.fitBounds(dokdo);
+*/
+	
+	
+	
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+//alert (address[i]);
+
+
+//주소 좌표 변환
+
+
+
+naver.maps.Service.geocode({ query: '성환읍 대홍리 산3-11' }, function(status, response) {
+    if (status === naver.maps.Service.Status.ERROR) {
+        return alert('Something wrong!');
+    }
+
+
+ if (response.v2.meta.totalCount === 0) {
+            alert('주소검색 안됨 : (' + '8' +') ' + '성환읍 대홍리 산3-11' );
+        }
+
+ if (response.v2.meta.totalCount > 1) {
+            alert('2개 이상의 동일주소 검색됨 : (' + '8' +') ' + '성환읍 대홍리 산3-11' );
+        }
+
+
+
+
+//alert (JSON.stringify(response));
+
+    // 성공 시의 response 처리
+//	alert (7);
+	
+	
+var item = response.v2.addresses[0];
+var point = new naver.maps.Point(item.x, item.y);	
+
+
+
+
+
+
+
+
+
+
+// 원그리기 
+
+
+var circle = {
+    position: point,
+    map: map,
+    icon: {
+        url: 'http://poinsettia85.ivyro.net/원.png',
+        size: new naver.maps.Size(50, 50),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(25, 25)
+    }
+};
+
+var marker = new naver.maps.Marker(circle);
+
+
+
+
+
+
+
+
+
+/*
+var circle = new naver.maps.Circle({
+    map: map,
+    center: point,
+    radius: 20,
+    strokeColor: 'blue',
+    strokeOpacity: 1,
+    strokeWeight: 3
+});
+*/
+
+
+//'+'7'+'
+
+// 텍스트 삽입
+
+var content = '<span class="left"></span><span class="center"><b><font color="#ff0000">'+'대홍리 산3-11'+""+''+'</font></b></span><span class="right"></span>';
+
+var text = new naver.maps.Marker({
+    position: point,
+    map: map,
+    icon: {
+        content: content,
+        anchor: new naver.maps.Point(25, 45),
+    },
+    draggable: false
+});
+
+
+/*
+var text = new naver.maps.InfoWindow({
+	position: point,
+	content: content,
+	disableAnchor: 'false',
+	backgroundColor: '#00ff0000',
+	borderColor: '#00ff0000'
+	
+	
+});
+
+text.open(map);
+*/
+
+
+
+
+//alert (content);
+
+
+/*
+var dokdo = new naver.maps.LatLngBounds(
+                        new naver.maps.LatLng(37.2380651, 131.8562652),
+                        new naver.maps.LatLng(37.2444436, 131.8786475));
+
+
+    map.fitBounds(dokdo);
+*/
+	
+	
+	
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+//alert (address[i]);
+
+
+//주소 좌표 변환
+
+
+
+naver.maps.Service.geocode({ query: '성환읍 양령리 343-2' }, function(status, response) {
+    if (status === naver.maps.Service.Status.ERROR) {
+        return alert('Something wrong!');
+    }
+
+
+ if (response.v2.meta.totalCount === 0) {
+            alert('주소검색 안됨 : (' + '9' +') ' + '성환읍 양령리 343-2' );
+        }
+
+ if (response.v2.meta.totalCount > 1) {
+            alert('2개 이상의 동일주소 검색됨 : (' + '9' +') ' + '성환읍 양령리 343-2' );
+        }
+
+
+
+
+//alert (JSON.stringify(response));
+
+    // 성공 시의 response 처리
+//	alert (8);
+	
+	
+var item = response.v2.addresses[0];
+var point = new naver.maps.Point(item.x, item.y);	
+
+
+
+
+
+
+
+
+
+
+// 원그리기 
+
+
+var circle = {
+    position: point,
+    map: map,
+    icon: {
+        url: 'http://poinsettia85.ivyro.net/원.png',
+        size: new naver.maps.Size(50, 50),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(25, 25)
+    }
+};
+
+var marker = new naver.maps.Marker(circle);
+
+
+
+
+
+
+
+
+
+/*
+var circle = new naver.maps.Circle({
+    map: map,
+    center: point,
+    radius: 20,
+    strokeColor: 'blue',
+    strokeOpacity: 1,
+    strokeWeight: 3
+});
+*/
+
+
+//'+'8'+'
+
+// 텍스트 삽입
+
+var content = '<span class="left"></span><span class="center"><b><font color="#ff0000">'+'양령리 343-2'+""+''+'</font></b></span><span class="right"></span>';
+
+var text = new naver.maps.Marker({
+    position: point,
+    map: map,
+    icon: {
+        content: content,
+        anchor: new naver.maps.Point(25, 45),
+    },
+    draggable: false
+});
+
+
+/*
+var text = new naver.maps.InfoWindow({
+	position: point,
+	content: content,
+	disableAnchor: 'false',
+	backgroundColor: '#00ff0000',
+	borderColor: '#00ff0000'
+	
+	
+});
+
+text.open(map);
+*/
+
+
+
+
+//alert (content);
+
+
+/*
+var dokdo = new naver.maps.LatLngBounds(
+                        new naver.maps.LatLng(37.2380651, 131.8562652),
+                        new naver.maps.LatLng(37.2444436, 131.8786475));
+
+
+    map.fitBounds(dokdo);
+*/
+	
+	
+	
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+//alert (address[i]);
+
+
+//주소 좌표 변환
+
+
+
+naver.maps.Service.geocode({ query: '성환읍 양령리 580-4' }, function(status, response) {
+    if (status === naver.maps.Service.Status.ERROR) {
+        return alert('Something wrong!');
+    }
+
+
+ if (response.v2.meta.totalCount === 0) {
+            alert('주소검색 안됨 : (' + '10' +') ' + '성환읍 양령리 580-4' );
+        }
+
+ if (response.v2.meta.totalCount > 1) {
+            alert('2개 이상의 동일주소 검색됨 : (' + '10' +') ' + '성환읍 양령리 580-4' );
+        }
+
+
+
+
+//alert (JSON.stringify(response));
+
+    // 성공 시의 response 처리
+//	alert (9);
+	
+	
+var item = response.v2.addresses[0];
+var point = new naver.maps.Point(item.x, item.y);	
+
+
+
+
+
+
+
+
+
+
+// 원그리기 
+
+
+var circle = {
+    position: point,
+    map: map,
+    icon: {
+        url: 'http://poinsettia85.ivyro.net/원.png',
+        size: new naver.maps.Size(50, 50),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(25, 25)
+    }
+};
+
+var marker = new naver.maps.Marker(circle);
+
+
+
+
+
+
+
+
+
+/*
+var circle = new naver.maps.Circle({
+    map: map,
+    center: point,
+    radius: 20,
+    strokeColor: 'blue',
+    strokeOpacity: 1,
+    strokeWeight: 3
+});
+*/
+
+
+//'+'9'+'
+
+// 텍스트 삽입
+
+var content = '<span class="left"></span><span class="center"><b><font color="#ff0000">'+'양령리 580-4'+""+''+'</font></b></span><span class="right"></span>';
+
+var text = new naver.maps.Marker({
+    position: point,
+    map: map,
+    icon: {
+        content: content,
+        anchor: new naver.maps.Point(25, 45),
+    },
+    draggable: false
+});
+
+
+/*
+var text = new naver.maps.InfoWindow({
+	position: point,
+	content: content,
+	disableAnchor: 'false',
+	backgroundColor: '#00ff0000',
+	borderColor: '#00ff0000'
+	
+	
+});
+
+text.open(map);
+*/
+
+
+
+
+//alert (content);
+
+
+/*
+var dokdo = new naver.maps.LatLngBounds(
+                        new naver.maps.LatLng(37.2380651, 131.8562652),
+                        new naver.maps.LatLng(37.2444436, 131.8786475));
+
+
+    map.fitBounds(dokdo);
+*/
+	
+	
+	
+
+
+});
+
+
+ 
+//test = "성환읍 수향리 20-89";
+//alert (test);
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+
+포인셋티어 5개.xlsx 업로드 성공 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>주소로 장소 표시하기</title>
+    
+</head>
+<body>
+ <input type="checkbox" id="chkUseDistrict" onclick="setOverlayMapTypeId()" /> 지적편집도 정보 보기
+<div id="map" style="width:100%;height:1000px;"></div>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ff7fafa1487c29a28a00b1303331b991&libraries=services"></script>   
+<script>
+
+
+
+var count = ["10"]
+//var test = new Array();
+//var test = Array();
+
+//var test = [""]
+
+
+//alert (number);
+
+
+	//test = "성환읍 수향리 20-89";
+	//alert (test);
+
+
+var number = new Array();
+var number = Array();
+
+
+var address = new Array();
+var address = Array();
+
+
+
+
+
+			
+		
+	number[0] = "";
+	address[0] = "성환읍 수향리 20-89";
+	
+	
+	
+		
+				
+		
+	number[1] = "";
+	address[1] = "아산시 용화동 50";
+	
+	
+	
+		
+				
+		
+	number[2] = "";
+	address[2] = "성환읍 수향리 55-28";
+	
+	
+	
+		
+				
+		
+	number[3] = "";
+	address[3] = "성환읍 양령리 343-2";
+	
+	
+	
+		
+				
+		
+	number[4] = "";
+	address[4] = "성환읍 양령리 390";
+	
+	
+	
+		
+				
+		
+	number[5] = "";
+	address[5] = "성환읍 수향리 20-153";
+	
+	
+	
+		
+				
+		
+	number[6] = "";
+	address[6] = "성환읍 양령리 609-1";
+	
+	
+	
+		
+				
+		
+	number[7] = "";
+	address[7] = "성환읍 대홍리 산3-11";
+	
+	
+	
+		
+				
+		
+	number[8] = "";
+	address[8] = "성환읍 양령리 343-2";
+	
+	
+	
+		
+				
+		
+	number[9] = "";
+	address[9] = "성환읍 양령리 580-4";
+	
+	
+	
+		
+		
+
+//alert (text1);
+
+
+
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = {
+        center: new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };  
+
+// 지도를 생성합니다    
+var map = new daum.maps.Map(mapContainer, mapOption); 
+
+// 주소-좌표 변환 객체를 생성합니다
+var geocoder = new daum.maps.services.Geocoder();
+
+//var i = "제주특별자치도 제주시 첨단로 242";  
+
+
+
+  
+  
+  
+  
+  
+//-----------------------------------------------------------------------
+  
+
+//var test2 = (test);
+//alert (test[0]);  
+//alert (test[1]); 
+//var test3 = test2.split(",");  
+//alert (test3[1]); 
+//alert (test2);
+//alert (test2);
+//for (var i in test2) {
+
+//var empList = new Array( "길음동543-7" , "길음동1279-1");
+
+//var empList = new Array(test);
+
+//alert (test);
+//alert (empList);
+
+
+
+
+
+//------------------------------------------------------------------------------
+
+
+
+var bounds = new daum.maps.LatLngBounds(); 
+
+var text1 = new Array();
+var text1 = Array();
+
+var text2 = new Array();
+var text2 = Array();
+
+var coords = new Array();
+var coords = Array();
+
+var bound = new Array();
+var bound = Array();
+
+
+
+
+
+
+
+
+	geocoder.addressSearch('성환읍 수향리 20-89', function(result, status) {
+
+			// 검색이 없으면 
+			 if (status === daum.maps.services.Status.ZERO_RESULT) {
+
+//alert (성환읍 수향리 20-89);
+
+
+
+
+
+ //document.write('성환읍 수향리 20-89');
+
+
+
+
+
+
+alert ("주소에러 : "+'1'+". "+ '성환읍 수향리 20-89');
+
+			 }
+			 
+			
+			
+			 
+	})		 
+	geocoder.addressSearch('아산시 용화동 50', function(result, status) {
+
+			// 검색이 없으면 
+			 if (status === daum.maps.services.Status.ZERO_RESULT) {
+
+//alert (아산시 용화동 50);
+
+
+
+
+
+ //document.write('아산시 용화동 50');
+
+
+
+
+
+
+alert ("주소에러 : "+'2'+". "+ '아산시 용화동 50');
+
+			 }
+			 
+			
+			
+			 
+	})		 
+	geocoder.addressSearch('성환읍 수향리 55-28', function(result, status) {
+
+			// 검색이 없으면 
+			 if (status === daum.maps.services.Status.ZERO_RESULT) {
+
+//alert (성환읍 수향리 55-28);
+
+
+
+
+
+ //document.write('성환읍 수향리 55-28');
+
+
+
+
+
+
+alert ("주소에러 : "+'3'+". "+ '성환읍 수향리 55-28');
+
+			 }
+			 
+			
+			
+			 
+	})		 
+	geocoder.addressSearch('성환읍 양령리 343-2', function(result, status) {
+
+			// 검색이 없으면 
+			 if (status === daum.maps.services.Status.ZERO_RESULT) {
+
+//alert (성환읍 양령리 343-2);
+
+
+
+
+
+ //document.write('성환읍 양령리 343-2');
+
+
+
+
+
+
+alert ("주소에러 : "+'4'+". "+ '성환읍 양령리 343-2');
+
+			 }
+			 
+			
+			
+			 
+	})		 
+	geocoder.addressSearch('성환읍 양령리 390', function(result, status) {
+
+			// 검색이 없으면 
+			 if (status === daum.maps.services.Status.ZERO_RESULT) {
+
+//alert (성환읍 양령리 390);
+
+
+
+
+
+ //document.write('성환읍 양령리 390');
+
+
+
+
+
+
+alert ("주소에러 : "+'5'+". "+ '성환읍 양령리 390');
+
+			 }
+			 
+			
+			
+			 
+	})		 
+	geocoder.addressSearch('성환읍 수향리 20-153', function(result, status) {
+
+			// 검색이 없으면 
+			 if (status === daum.maps.services.Status.ZERO_RESULT) {
+
+//alert (성환읍 수향리 20-153);
+
+
+
+
+
+ //document.write('성환읍 수향리 20-153');
+
+
+
+
+
+
+alert ("주소에러 : "+'6'+". "+ '성환읍 수향리 20-153');
+
+			 }
+			 
+			
+			
+			 
+	})		 
+	geocoder.addressSearch('성환읍 양령리 609-1', function(result, status) {
+
+			// 검색이 없으면 
+			 if (status === daum.maps.services.Status.ZERO_RESULT) {
+
+//alert (성환읍 양령리 609-1);
+
+
+
+
+
+ //document.write('성환읍 양령리 609-1');
+
+
+
+
+
+
+alert ("주소에러 : "+'7'+". "+ '성환읍 양령리 609-1');
+
+			 }
+			 
+			
+			
+			 
+	})		 
+	geocoder.addressSearch('성환읍 대홍리 산3-11', function(result, status) {
+
+			// 검색이 없으면 
+			 if (status === daum.maps.services.Status.ZERO_RESULT) {
+
+//alert (성환읍 대홍리 산3-11);
+
+
+
+
+
+ //document.write('성환읍 대홍리 산3-11');
+
+
+
+
+
+
+alert ("주소에러 : "+'8'+". "+ '성환읍 대홍리 산3-11');
+
+			 }
+			 
+			
+			
+			 
+	})		 
+	geocoder.addressSearch('성환읍 양령리 343-2', function(result, status) {
+
+			// 검색이 없으면 
+			 if (status === daum.maps.services.Status.ZERO_RESULT) {
+
+//alert (성환읍 양령리 343-2);
+
+
+
+
+
+ //document.write('성환읍 양령리 343-2');
+
+
+
+
+
+
+alert ("주소에러 : "+'9'+". "+ '성환읍 양령리 343-2');
+
+			 }
+			 
+			
+			
+			 
+	})		 
+	geocoder.addressSearch('성환읍 양령리 580-4', function(result, status) {
+
+			// 검색이 없으면 
+			 if (status === daum.maps.services.Status.ZERO_RESULT) {
+
+//alert (성환읍 양령리 580-4);
+
+
+
+
+
+ //document.write('성환읍 양령리 580-4');
+
+
+
+
+
+
+alert ("주소에러 : "+'10'+". "+ '성환읍 양령리 580-4');
+
+			 }
+			 
+			
+			
+			 
+	})		 
+
+  
+
+
+
+
+
+var bounds = new daum.maps.LatLngBounds(); 
+
+
+
+
+
+	geocoder.addressSearch('성환읍 수향리 20-89', function(result, status) {
+
+
+
+
+
+		
+			// 정상적으로 검색이 완료됐으면 
+			 if (status === daum.maps.services.Status.OK) {
+
+
+  
+
+				var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+			 
+			
+//alert (coords[1]);
+//alert (coords[0]);
+				// 결과값으로 받은 위치를 마커로 표시합니다
+				
+				//bounds.extend(coords);
+			//alert (coords);
+			
+			
+			/*	
+				var circle = new daum.maps.Circle({
+					center : coords,  // 원의 중심좌표 입니다 
+					radius: 5, // 미터 단위의 원의 반지름입니다 
+					strokeWeight: 3, // 선의 두께입니다 
+					strokeColor: 'red', // 선의 색깔입니다
+					strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+					strokeStyle: 'line', // 선의 스타일 입니다
+					 
+				}); 
+
+			circle.setMap(map); 	
+			*/	
+				
+
+					//	alert (text1[i]);
+				
+				var content = '<span class="left"></span><span class="center"><b><font color="#ff0000">'+'수향리 20-89'+""+''+'</font></b></span><span class="right"></span>';
+				
+				var customOverlay = new daum.maps.CustomOverlay({
+				position: coords,
+				content: content,
+				yAnchor: 1.5
+								
+				});
+
+				// 커스텀 오버레이를 지도에 표시합니다
+				customOverlay.setMap(map);
+					
+				
+				
+				
+				
+				
+
+				var imageSrc = 'http://poinsettia85.ivyro.net/원.png', // 마커이미지의 주소입니다    
+					imageSize = new daum.maps.Size(25, 25), // 마커이미지의 크기입니다
+					imageOption = {offset: new daum.maps.Point(11, 11)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+					  
+				// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+				var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOption);
+				   
+
+				// 마커를 생성합니다
+				var marker = new daum.maps.Marker({
+					position: coords, 
+					image: markerImage // 마커이미지 설정 
+				});
+
+				// 마커가 지도 위에 표시되도록 설정합니다
+				marker.setMap(map);  
+						
+// 지도를 재설정할 범위정보를 가지고 있을 LatLngBounds 객체를 생성합니다				
+bounds.extend(coords);
+//alert (i);
+
+map.setBounds(bounds);
+
+//alert (i);
+
+
+
+
+
+				
+				//map.setCenter(coords);
+		 
+
+
+
+
+
+
+	
+
+
+	
+
+
+
+		}
+
+	
+	
+
+	
+	
+		
+	});
+
+
+
+
+
+
+
+
+
+
+	geocoder.addressSearch('아산시 용화동 50', function(result, status) {
+
+
+
+
+
+		
+			// 정상적으로 검색이 완료됐으면 
+			 if (status === daum.maps.services.Status.OK) {
+
+
+  
+
+				var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+			 
+			
+//alert (coords[1]);
+//alert (coords[0]);
+				// 결과값으로 받은 위치를 마커로 표시합니다
+				
+				//bounds.extend(coords);
+			//alert (coords);
+			
+			
+			/*	
+				var circle = new daum.maps.Circle({
+					center : coords,  // 원의 중심좌표 입니다 
+					radius: 5, // 미터 단위의 원의 반지름입니다 
+					strokeWeight: 3, // 선의 두께입니다 
+					strokeColor: 'red', // 선의 색깔입니다
+					strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+					strokeStyle: 'line', // 선의 스타일 입니다
+					 
+				}); 
+
+			circle.setMap(map); 	
+			*/	
+				
+
+					//	alert (text1[i]);
+				
+				var content = '<span class="left"></span><span class="center"><b><font color="#ff0000">'+'용화동 50'+""+''+'</font></b></span><span class="right"></span>';
+				
+				var customOverlay = new daum.maps.CustomOverlay({
+				position: coords,
+				content: content,
+				yAnchor: 1.5
+								
+				});
+
+				// 커스텀 오버레이를 지도에 표시합니다
+				customOverlay.setMap(map);
+					
+				
+				
+				
+				
+				
+
+				var imageSrc = 'http://poinsettia85.ivyro.net/원.png', // 마커이미지의 주소입니다    
+					imageSize = new daum.maps.Size(25, 25), // 마커이미지의 크기입니다
+					imageOption = {offset: new daum.maps.Point(11, 11)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+					  
+				// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+				var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOption);
+				   
+
+				// 마커를 생성합니다
+				var marker = new daum.maps.Marker({
+					position: coords, 
+					image: markerImage // 마커이미지 설정 
+				});
+
+				// 마커가 지도 위에 표시되도록 설정합니다
+				marker.setMap(map);  
+						
+// 지도를 재설정할 범위정보를 가지고 있을 LatLngBounds 객체를 생성합니다				
+bounds.extend(coords);
+//alert (i);
+
+map.setBounds(bounds);
+
+//alert (i);
+
+
+
+
+
+				
+				//map.setCenter(coords);
+		 
+
+
+
+
+
+
+	
+
+
+	
+
+
+
+		}
+
+	
+	
+
+	
+	
+		
+	});
+
+
+
+
+
+
+
+
+
+
+	geocoder.addressSearch('성환읍 수향리 55-28', function(result, status) {
+
+
+
+
+
+		
+			// 정상적으로 검색이 완료됐으면 
+			 if (status === daum.maps.services.Status.OK) {
+
+
+  
+
+				var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+			 
+			
+//alert (coords[1]);
+//alert (coords[0]);
+				// 결과값으로 받은 위치를 마커로 표시합니다
+				
+				//bounds.extend(coords);
+			//alert (coords);
+			
+			
+			/*	
+				var circle = new daum.maps.Circle({
+					center : coords,  // 원의 중심좌표 입니다 
+					radius: 5, // 미터 단위의 원의 반지름입니다 
+					strokeWeight: 3, // 선의 두께입니다 
+					strokeColor: 'red', // 선의 색깔입니다
+					strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+					strokeStyle: 'line', // 선의 스타일 입니다
+					 
+				}); 
+
+			circle.setMap(map); 	
+			*/	
+				
+
+					//	alert (text1[i]);
+				
+				var content = '<span class="left"></span><span class="center"><b><font color="#ff0000">'+'수향리 55-28'+""+''+'</font></b></span><span class="right"></span>';
+				
+				var customOverlay = new daum.maps.CustomOverlay({
+				position: coords,
+				content: content,
+				yAnchor: 1.5
+								
+				});
+
+				// 커스텀 오버레이를 지도에 표시합니다
+				customOverlay.setMap(map);
+					
+				
+				
+				
+				
+				
+
+				var imageSrc = 'http://poinsettia85.ivyro.net/원.png', // 마커이미지의 주소입니다    
+					imageSize = new daum.maps.Size(25, 25), // 마커이미지의 크기입니다
+					imageOption = {offset: new daum.maps.Point(11, 11)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+					  
+				// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+				var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOption);
+				   
+
+				// 마커를 생성합니다
+				var marker = new daum.maps.Marker({
+					position: coords, 
+					image: markerImage // 마커이미지 설정 
+				});
+
+				// 마커가 지도 위에 표시되도록 설정합니다
+				marker.setMap(map);  
+						
+// 지도를 재설정할 범위정보를 가지고 있을 LatLngBounds 객체를 생성합니다				
+bounds.extend(coords);
+//alert (i);
+
+map.setBounds(bounds);
+
+//alert (i);
+
+
+
+
+
+				
+				//map.setCenter(coords);
+		 
+
+
+
+
+
+
+	
+
+
+	
+
+
+
+		}
+
+	
+	
+
+	
+	
+		
+	});
+
+
+
+
+
+
+
+
+
+
+	geocoder.addressSearch('성환읍 양령리 343-2', function(result, status) {
+
+
+
+
+
+		
+			// 정상적으로 검색이 완료됐으면 
+			 if (status === daum.maps.services.Status.OK) {
+
+
+  
+
+				var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+			 
+			
+//alert (coords[1]);
+//alert (coords[0]);
+				// 결과값으로 받은 위치를 마커로 표시합니다
+				
+				//bounds.extend(coords);
+			//alert (coords);
+			
+			
+			/*	
+				var circle = new daum.maps.Circle({
+					center : coords,  // 원의 중심좌표 입니다 
+					radius: 5, // 미터 단위의 원의 반지름입니다 
+					strokeWeight: 3, // 선의 두께입니다 
+					strokeColor: 'red', // 선의 색깔입니다
+					strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+					strokeStyle: 'line', // 선의 스타일 입니다
+					 
+				}); 
+
+			circle.setMap(map); 	
+			*/	
+				
+
+					//	alert (text1[i]);
+				
+				var content = '<span class="left"></span><span class="center"><b><font color="#ff0000">'+'양령리 343-2'+""+''+'</font></b></span><span class="right"></span>';
+				
+				var customOverlay = new daum.maps.CustomOverlay({
+				position: coords,
+				content: content,
+				yAnchor: 1.5
+								
+				});
+
+				// 커스텀 오버레이를 지도에 표시합니다
+				customOverlay.setMap(map);
+					
+				
+				
+				
+				
+				
+
+				var imageSrc = 'http://poinsettia85.ivyro.net/원.png', // 마커이미지의 주소입니다    
+					imageSize = new daum.maps.Size(25, 25), // 마커이미지의 크기입니다
+					imageOption = {offset: new daum.maps.Point(11, 11)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+					  
+				// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+				var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOption);
+				   
+
+				// 마커를 생성합니다
+				var marker = new daum.maps.Marker({
+					position: coords, 
+					image: markerImage // 마커이미지 설정 
+				});
+
+				// 마커가 지도 위에 표시되도록 설정합니다
+				marker.setMap(map);  
+						
+// 지도를 재설정할 범위정보를 가지고 있을 LatLngBounds 객체를 생성합니다				
+bounds.extend(coords);
+//alert (i);
+
+map.setBounds(bounds);
+
+//alert (i);
+
+
+
+
+
+				
+				//map.setCenter(coords);
+		 
+
+
+
+
+
+
+	
+
+
+	
+
+
+
+		}
+
+	
+	
+
+	
+	
+		
+	});
+
+
+
+
+
+
+
+
+
+
+	geocoder.addressSearch('성환읍 양령리 390', function(result, status) {
+
+
+
+
+
+		
+			// 정상적으로 검색이 완료됐으면 
+			 if (status === daum.maps.services.Status.OK) {
+
+
+  
+
+				var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+			 
+			
+//alert (coords[1]);
+//alert (coords[0]);
+				// 결과값으로 받은 위치를 마커로 표시합니다
+				
+				//bounds.extend(coords);
+			//alert (coords);
+			
+			
+			/*	
+				var circle = new daum.maps.Circle({
+					center : coords,  // 원의 중심좌표 입니다 
+					radius: 5, // 미터 단위의 원의 반지름입니다 
+					strokeWeight: 3, // 선의 두께입니다 
+					strokeColor: 'red', // 선의 색깔입니다
+					strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+					strokeStyle: 'line', // 선의 스타일 입니다
+					 
+				}); 
+
+			circle.setMap(map); 	
+			*/	
+				
+
+					//	alert (text1[i]);
+				
+				var content = '<span class="left"></span><span class="center"><b><font color="#ff0000">'+'양령리 390'+""+''+'</font></b></span><span class="right"></span>';
+				
+				var customOverlay = new daum.maps.CustomOverlay({
+				position: coords,
+				content: content,
+				yAnchor: 1.5
+								
+				});
+
+				// 커스텀 오버레이를 지도에 표시합니다
+				customOverlay.setMap(map);
+					
+				
+				
+				
+				
+				
+
+				var imageSrc = 'http://poinsettia85.ivyro.net/원.png', // 마커이미지의 주소입니다    
+					imageSize = new daum.maps.Size(25, 25), // 마커이미지의 크기입니다
+					imageOption = {offset: new daum.maps.Point(11, 11)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+					  
+				// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+				var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOption);
+				   
+
+				// 마커를 생성합니다
+				var marker = new daum.maps.Marker({
+					position: coords, 
+					image: markerImage // 마커이미지 설정 
+				});
+
+				// 마커가 지도 위에 표시되도록 설정합니다
+				marker.setMap(map);  
+						
+// 지도를 재설정할 범위정보를 가지고 있을 LatLngBounds 객체를 생성합니다				
+bounds.extend(coords);
+//alert (i);
+
+map.setBounds(bounds);
+
+//alert (i);
+
+
+
+
+
+				
+				//map.setCenter(coords);
+		 
+
+
+
+
+
+
+	
+
+
+	
+
+
+
+		}
+
+	
+	
+
+	
+	
+		
+	});
+
+
+
+
+
+
+
+
+
+
+	geocoder.addressSearch('성환읍 수향리 20-153', function(result, status) {
+
+
+
+
+
+		
+			// 정상적으로 검색이 완료됐으면 
+			 if (status === daum.maps.services.Status.OK) {
+
+
+  
+
+				var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+			 
+			
+//alert (coords[1]);
+//alert (coords[0]);
+				// 결과값으로 받은 위치를 마커로 표시합니다
+				
+				//bounds.extend(coords);
+			//alert (coords);
+			
+			
+			/*	
+				var circle = new daum.maps.Circle({
+					center : coords,  // 원의 중심좌표 입니다 
+					radius: 5, // 미터 단위의 원의 반지름입니다 
+					strokeWeight: 3, // 선의 두께입니다 
+					strokeColor: 'red', // 선의 색깔입니다
+					strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+					strokeStyle: 'line', // 선의 스타일 입니다
+					 
+				}); 
+
+			circle.setMap(map); 	
+			*/	
+				
+
+					//	alert (text1[i]);
+				
+				var content = '<span class="left"></span><span class="center"><b><font color="#ff0000">'+'수향리 20-153'+""+''+'</font></b></span><span class="right"></span>';
+				
+				var customOverlay = new daum.maps.CustomOverlay({
+				position: coords,
+				content: content,
+				yAnchor: 1.5
+								
+				});
+
+				// 커스텀 오버레이를 지도에 표시합니다
+				customOverlay.setMap(map);
+					
+				
+				
+				
+				
+				
+
+				var imageSrc = 'http://poinsettia85.ivyro.net/원.png', // 마커이미지의 주소입니다    
+					imageSize = new daum.maps.Size(25, 25), // 마커이미지의 크기입니다
+					imageOption = {offset: new daum.maps.Point(11, 11)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+					  
+				// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+				var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOption);
+				   
+
+				// 마커를 생성합니다
+				var marker = new daum.maps.Marker({
+					position: coords, 
+					image: markerImage // 마커이미지 설정 
+				});
+
+				// 마커가 지도 위에 표시되도록 설정합니다
+				marker.setMap(map);  
+						
+// 지도를 재설정할 범위정보를 가지고 있을 LatLngBounds 객체를 생성합니다				
+bounds.extend(coords);
+//alert (i);
+
+map.setBounds(bounds);
+
+//alert (i);
+
+
+
+
+
+				
+				//map.setCenter(coords);
+		 
+
+
+
+
+
+
+	
+
+
+	
+
+
+
+		}
+
+	
+	
+
+	
+	
+		
+	});
+
+
+
+
+
+
+
+
+
+
+	geocoder.addressSearch('성환읍 양령리 609-1', function(result, status) {
+
+
+
+
+
+		
+			// 정상적으로 검색이 완료됐으면 
+			 if (status === daum.maps.services.Status.OK) {
+
+
+  
+
+				var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+			 
+			
+//alert (coords[1]);
+//alert (coords[0]);
+				// 결과값으로 받은 위치를 마커로 표시합니다
+				
+				//bounds.extend(coords);
+			//alert (coords);
+			
+			
+			/*	
+				var circle = new daum.maps.Circle({
+					center : coords,  // 원의 중심좌표 입니다 
+					radius: 5, // 미터 단위의 원의 반지름입니다 
+					strokeWeight: 3, // 선의 두께입니다 
+					strokeColor: 'red', // 선의 색깔입니다
+					strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+					strokeStyle: 'line', // 선의 스타일 입니다
+					 
+				}); 
+
+			circle.setMap(map); 	
+			*/	
+				
+
+					//	alert (text1[i]);
+				
+				var content = '<span class="left"></span><span class="center"><b><font color="#ff0000">'+'양령리 609-1'+""+''+'</font></b></span><span class="right"></span>';
+				
+				var customOverlay = new daum.maps.CustomOverlay({
+				position: coords,
+				content: content,
+				yAnchor: 1.5
+								
+				});
+
+				// 커스텀 오버레이를 지도에 표시합니다
+				customOverlay.setMap(map);
+					
+				
+				
+				
+				
+				
+
+				var imageSrc = 'http://poinsettia85.ivyro.net/원.png', // 마커이미지의 주소입니다    
+					imageSize = new daum.maps.Size(25, 25), // 마커이미지의 크기입니다
+					imageOption = {offset: new daum.maps.Point(11, 11)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+					  
+				// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+				var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOption);
+				   
+
+				// 마커를 생성합니다
+				var marker = new daum.maps.Marker({
+					position: coords, 
+					image: markerImage // 마커이미지 설정 
+				});
+
+				// 마커가 지도 위에 표시되도록 설정합니다
+				marker.setMap(map);  
+						
+// 지도를 재설정할 범위정보를 가지고 있을 LatLngBounds 객체를 생성합니다				
+bounds.extend(coords);
+//alert (i);
+
+map.setBounds(bounds);
+
+//alert (i);
+
+
+
+
+
+				
+				//map.setCenter(coords);
+		 
+
+
+
+
+
+
+	
+
+
+	
+
+
+
+		}
+
+	
+	
+
+	
+	
+		
+	});
+
+
+
+
+
+
+
+
+
+
+	geocoder.addressSearch('성환읍 대홍리 산3-11', function(result, status) {
+
+
+
+
+
+		
+			// 정상적으로 검색이 완료됐으면 
+			 if (status === daum.maps.services.Status.OK) {
+
+
+  
+
+				var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+			 
+			
+//alert (coords[1]);
+//alert (coords[0]);
+				// 결과값으로 받은 위치를 마커로 표시합니다
+				
+				//bounds.extend(coords);
+			//alert (coords);
+			
+			
+			/*	
+				var circle = new daum.maps.Circle({
+					center : coords,  // 원의 중심좌표 입니다 
+					radius: 5, // 미터 단위의 원의 반지름입니다 
+					strokeWeight: 3, // 선의 두께입니다 
+					strokeColor: 'red', // 선의 색깔입니다
+					strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+					strokeStyle: 'line', // 선의 스타일 입니다
+					 
+				}); 
+
+			circle.setMap(map); 	
+			*/	
+				
+
+					//	alert (text1[i]);
+				
+				var content = '<span class="left"></span><span class="center"><b><font color="#ff0000">'+'대홍리 산3-11'+""+''+'</font></b></span><span class="right"></span>';
+				
+				var customOverlay = new daum.maps.CustomOverlay({
+				position: coords,
+				content: content,
+				yAnchor: 1.5
+								
+				});
+
+				// 커스텀 오버레이를 지도에 표시합니다
+				customOverlay.setMap(map);
+					
+				
+				
+				
+				
+				
+
+				var imageSrc = 'http://poinsettia85.ivyro.net/원.png', // 마커이미지의 주소입니다    
+					imageSize = new daum.maps.Size(25, 25), // 마커이미지의 크기입니다
+					imageOption = {offset: new daum.maps.Point(11, 11)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+					  
+				// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+				var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOption);
+				   
+
+				// 마커를 생성합니다
+				var marker = new daum.maps.Marker({
+					position: coords, 
+					image: markerImage // 마커이미지 설정 
+				});
+
+				// 마커가 지도 위에 표시되도록 설정합니다
+				marker.setMap(map);  
+						
+// 지도를 재설정할 범위정보를 가지고 있을 LatLngBounds 객체를 생성합니다				
+bounds.extend(coords);
+//alert (i);
+
+map.setBounds(bounds);
+
+//alert (i);
+
+
+
+
+
+				
+				//map.setCenter(coords);
+		 
+
+
+
+
+
+
+	
+
+
+	
+
+
+
+		}
+
+	
+	
+
+	
+	
+		
+	});
+
+
+
+
+
+
+
+
+
+
+	geocoder.addressSearch('성환읍 양령리 343-2', function(result, status) {
+
+
+
+
+
+		
+			// 정상적으로 검색이 완료됐으면 
+			 if (status === daum.maps.services.Status.OK) {
+
+
+  
+
+				var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+			 
+			
+//alert (coords[1]);
+//alert (coords[0]);
+				// 결과값으로 받은 위치를 마커로 표시합니다
+				
+				//bounds.extend(coords);
+			//alert (coords);
+			
+			
+			/*	
+				var circle = new daum.maps.Circle({
+					center : coords,  // 원의 중심좌표 입니다 
+					radius: 5, // 미터 단위의 원의 반지름입니다 
+					strokeWeight: 3, // 선의 두께입니다 
+					strokeColor: 'red', // 선의 색깔입니다
+					strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+					strokeStyle: 'line', // 선의 스타일 입니다
+					 
+				}); 
+
+			circle.setMap(map); 	
+			*/	
+				
+
+					//	alert (text1[i]);
+				
+				var content = '<span class="left"></span><span class="center"><b><font color="#ff0000">'+'양령리 343-2'+""+''+'</font></b></span><span class="right"></span>';
+				
+				var customOverlay = new daum.maps.CustomOverlay({
+				position: coords,
+				content: content,
+				yAnchor: 1.5
+								
+				});
+
+				// 커스텀 오버레이를 지도에 표시합니다
+				customOverlay.setMap(map);
+					
+				
+				
+				
+				
+				
+
+				var imageSrc = 'http://poinsettia85.ivyro.net/원.png', // 마커이미지의 주소입니다    
+					imageSize = new daum.maps.Size(25, 25), // 마커이미지의 크기입니다
+					imageOption = {offset: new daum.maps.Point(11, 11)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+					  
+				// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+				var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOption);
+				   
+
+				// 마커를 생성합니다
+				var marker = new daum.maps.Marker({
+					position: coords, 
+					image: markerImage // 마커이미지 설정 
+				});
+
+				// 마커가 지도 위에 표시되도록 설정합니다
+				marker.setMap(map);  
+						
+// 지도를 재설정할 범위정보를 가지고 있을 LatLngBounds 객체를 생성합니다				
+bounds.extend(coords);
+//alert (i);
+
+map.setBounds(bounds);
+
+//alert (i);
+
+
+
+
+
+				
+				//map.setCenter(coords);
+		 
+
+
+
+
+
+
+	
+
+
+	
+
+
+
+		}
+
+	
+	
+
+	
+	
+		
+	});
+
+
+
+
+
+
+
+
+
+
+	geocoder.addressSearch('성환읍 양령리 580-4', function(result, status) {
+
+
+
+
+
+		
+			// 정상적으로 검색이 완료됐으면 
+			 if (status === daum.maps.services.Status.OK) {
+
+
+  
+
+				var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+			 
+			
+//alert (coords[1]);
+//alert (coords[0]);
+				// 결과값으로 받은 위치를 마커로 표시합니다
+				
+				//bounds.extend(coords);
+			//alert (coords);
+			
+			
+			/*	
+				var circle = new daum.maps.Circle({
+					center : coords,  // 원의 중심좌표 입니다 
+					radius: 5, // 미터 단위의 원의 반지름입니다 
+					strokeWeight: 3, // 선의 두께입니다 
+					strokeColor: 'red', // 선의 색깔입니다
+					strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+					strokeStyle: 'line', // 선의 스타일 입니다
+					 
+				}); 
+
+			circle.setMap(map); 	
+			*/	
+				
+
+					//	alert (text1[i]);
+				
+				var content = '<span class="left"></span><span class="center"><b><font color="#ff0000">'+'양령리 580-4'+""+''+'</font></b></span><span class="right"></span>';
+				
+				var customOverlay = new daum.maps.CustomOverlay({
+				position: coords,
+				content: content,
+				yAnchor: 1.5
+								
+				});
+
+				// 커스텀 오버레이를 지도에 표시합니다
+				customOverlay.setMap(map);
+					
+				
+				
+				
+				
+				
+
+				var imageSrc = 'http://poinsettia85.ivyro.net/원.png', // 마커이미지의 주소입니다    
+					imageSize = new daum.maps.Size(25, 25), // 마커이미지의 크기입니다
+					imageOption = {offset: new daum.maps.Point(11, 11)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+					  
+				// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+				var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOption);
+				   
+
+				// 마커를 생성합니다
+				var marker = new daum.maps.Marker({
+					position: coords, 
+					image: markerImage // 마커이미지 설정 
+				});
+
+				// 마커가 지도 위에 표시되도록 설정합니다
+				marker.setMap(map);  
+						
+// 지도를 재설정할 범위정보를 가지고 있을 LatLngBounds 객체를 생성합니다				
+bounds.extend(coords);
+//alert (i);
+
+map.setBounds(bounds);
+
+//alert (i);
+
+
+
+
+
+				
+				//map.setCenter(coords);
+		 
+
+
+
+
+
+
+	
+
+
+	
+
+
+
+		}
+
+	
+	
+
+	
+	
+		
+	});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function setOverlayMapTypeId(maptype) {
+    
+	var chkUseDistrict1 = document.getElementById('chkUseDistrict');
+	
+	var changeMaptype;
+    
+    // maptype에 따라 지도에 추가할 지도타입을 결정합니다
+    if (chkUseDistrict1.checked) {
+        
+		
+		changeMaptype = daum.maps.MapTypeId.USE_DISTRICT;  
+
+ // maptype에 해당하는 지도타입을 지도에 추가합니다
+    map.addOverlayMapTypeId(changeMaptype);
+    
+    // 지도에 추가된 타입정보를 갱신합니다
+    currentTypeId = changeMaptype; 		
+        
+    }
+	
+	
+	
+	else   {
+        
+
+		map.removeOverlayMapTypeId(currentTypeId);    
+		
+		
+		 // maptype에 해당하는 지도타입을 지도에 추가합니다
+   // map.addOverlayMapTypeId(changeMaptype);
+    
+    // 지도에 추가된 타입정보를 갱신합니다
+    currentTypeId = changeMaptype; 
+        
+    }
+		
+	
+    
+    // 이미 등록된 지도 타입이 있으면 제거합니다
+	
+	
+  //  else (currentTypeId) {
+ //       map.removeOverlayMapTypeId(currentTypeId);    
+  //  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+   var clusterer = new daum.maps.MarkerClusterer({
+        map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체 
+        averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정 
+        minLevel: 10 // 클러스터 할 최소 지도 레벨 
+    });
+ 
+    // 데이터를 가져오기 위해 jQuery를 사용합니다
+    // 데이터를 가져와 마커를 생성하고 클러스터러 객체에 넘겨줍니다
+    $.get("/download/web/data/chicken.json", function(data) {
+        // 데이터에서 좌표 값을 가지고 마커를 표시합니다
+        // 마커 클러스터러로 관리할 마커 객체는 생성할 때 지도 객체를 설정하지 않습니다
+        var markers = $(data.positions).map(function(i, position) {
+            return new daum.maps.Marker({
+                position : new daum.maps.LatLng(position.lat, position.lng)
+            });
+        });
+
+        // 클러스터러에 마커들을 추가합니다
+        clusterer.addMarkers(markers);
+    });
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+          
+}
+
+
+  
+
+
+//alert ("지도 개발중~!");
+//alert (성환읍 수향리 20-89);
+
+//}
+
+</script>
+</body>
+</html>
+

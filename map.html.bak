@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>최종 지도만들기 파일</title>
+
+    <script language = "JavaScript">
+        function DetectActiveXControl()
+{
+    try
+    {
+         var xObj = new ActiveXObject("Excel.Application");
+	 if(xObj){Installed = true;}else{Installed=false;}
+    }
+    catch(ex){Installed = false;}
+    if(Installed == true)
+    {
+ 	 alert("ActiveX Control가 정상적으로 설치되어 있습니다.");
+    }
+    else
+    {
+   	 alert("ActiveX Control가 설치 안됨. 설치하세요!");
+    }
+}
+//-->
+
+/*
+	function No_right() {
+		if (event.button==2)
+		{
+			alert('우측 마우스 클릭금지');
+		}
+		}
+		document.onmousedown=No_right;
+*/
+
+
+</script>
+
+</head>
+
+<body topmargin='0' leftmargin='0' onload="DetectActiveXControl()">
+
+
+<form name='frm' method='post'>
+
+  <input type='file' name='excelFile'>
+  <input type='button' value='ReadExcel' onclick='getExcelData()'>
+  <div id='dis'></div>
+
+
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=58e1f26be1f1acdf42f48223eee91673&libraries=services"></script>
+<script language = "JavaScript">
+<!--
+
+
+/* 기존지도 앱키
+29ca483cad024f255d57358059aaf535
+66309a68d9fbbc5b8a15ab7c20533a62
+be32090891698d02933f93edcdf487ef
+fddc281557e4d19f85b2cdfb590fc580
+*/
+
+/* 새로발급받은 앱키
+4ecf7629988c788fbcf0d2630421ca60 네이티브 앱 키
+cefef5a4dffbe58aa495eea8bb1a5ae9 REST API키
+b2b7ffdf573ec7bfd043a2049659909d JavaScript 키
+c19ac9ba0624894086b37fcef62f235c Admin 키
+*/
+/* JK
+ 5da8027ec5733d93d4a8b203ba835432REST 
+ 1ec91c37840dc5cd325fa307e78c0c1d
+ 58e1f26be1f1acdf42f48223eee91673
+ ee5ef72b952f5da3c9282d68e28390db
+*/
+
+var Result0 = [];
+var coords = [];
+var coordname = [];
+var i;
+var eobj ="";
+var fm = "";
+var Excel =  new ActiveXObject('Excel.Application');
+var juso = [];
+var n ;
+var geocoder = new daum.maps.services.Geocoder();
+
+
+function getExcelData()
+{
+
+ 
+    fm  = document.frm;
+  Excel.Visible = false;
+  eobj = Excel.Workbooks.Open(fm.excelFile.value);
+  Excel.Application.Visible = false;
+  Excel.Application.Worksheets("sheet1").Activate;
+  oRange = Excel.Application.ActiveSheet.UsedRange;
+  oRange.Select();
+  var RowsNum = oRange.Rows.count;
+  var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+  mapOption = {
+    center: new daum.maps.LatLng(36.798488,127.161332), // 지도의 중심좌표
+    level: 3 // 지도의 확대 레벨
+  };
+// 지도를 생성합니다
+  var map = new daum.maps.Map(mapContainer, mapOption);
+// 주소-좌표 변환 객체를 생성합니다
+// 지도를 재설정할 범위정보를 가지고 있을 LatLngBounds 객체를 생성합니다
+  var bounds = new daum.maps.LatLngBounds();
+
+  for (i = 0; i < RowsNum; i ++) {
+    coordname.push(eobj.ActiveSheet.Cells(i+1,2).Value);
+    juso.push(eobj.ActiveSheet.Cells(i+1,1).Value);
+  n = i;
+  }
+   
+
+ 
+
+juso.forEach(function(addr, index) 
+{
+
+    geocoder.addressSearch(addr, function(result, status) 
+	{
+		  if (status === daum.maps.services.Status.OK) 
+		  {
+		   var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+			  if (coords != null) {
+			  var customOverlay = new daum.maps.CustomOverlay({
+					   map: map,
+					   position: coords,
+					   content: '<div style = "padding:1px; font:15px red; border:2px solid red;">'+  coordname[index] +'</div>'
+					   });
+				
+
+			  }
+			
+			
+	      }
+		bounds.extend(coords);  // bound가 coord의 인수를 모두 포함아도록 영역 정보 확장
+		
+
+         
+    });
+	
+
+});
+
+alert('1단계 완료'); 
+
+
+//정확하지 않은 주소 회사위도경도에 표시하기
+var a = 36.798288;
+var b = 127.161332;
+
+
+juso.forEach(function(addr, index) 
+{
+
+    geocoder.addressSearch(addr, function(result, status) 
+	{
+		  if (status === daum.maps.services.Status.OK) 
+		  {
+		   }
+		   else{
+
+			  var coords = new daum.maps.LatLng(a, b);
+			  var customOverlay = new daum.maps.CustomOverlay({
+					   map: map,
+					   position: coords,
+					   content: '<div style = "padding:1px; font:15px red; border:2px solid red;">'+  coordname[index] +'</div>'
+					   });
+				
+				a = a-0.0002;
+
+		  }
+		
+		
+
+         
+    });
+});
+	
+	Excel.Quit();
+	map.setBounds(bounds); // 주소가 지도영역안에 모두 포함되도록 중심좌표와 확대수준 변경
+
+    alert('지도작성완료');
+
+     
+}
+
+
+
+
+</script>
+</form>
+
+<OBJECT ID="DeviceController" CLASSID="CLSID:C4AD2D38-8D04-4423-8553-AA5E629C584B"
+codebase="DeviceManager.cab#version=7,0,0,1">
+</OBJECT>
+
+<div id="map" style="width:100%;height:900px;"></div>
+
+
+</body>
+
+</html>
+
+
+
